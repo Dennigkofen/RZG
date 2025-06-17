@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia Mundi - Frühgeschichte</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Text', serif;
+            background: linear-gradient(45deg, #8B4513 0%, #CD853F 25%, #DEB887 50%, #CD853F 75%, #8B4513 100%);
+            background-size: 400% 400%;
+            animation: earthyGradient 25s ease infinite;
+            min-height: 100vh;
+            color: #2F1B14;
+        }
+
+        @keyframes earthyGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 15% 25%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 85% 75%, rgba(160, 82, 45, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(210, 180, 140, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .nav-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: rgba(100, 149, 237, 0.8);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(100, 149, 237, 0.5);
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .nav-button:hover {
+            background: rgba(100, 149, 237, 1);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(100, 149, 237, 0.4);
+        }
+
+        .nav-button.back {
+            background: rgba(100, 149, 237, 0.8);
+            border-color: rgba(100, 149, 237, 0.5);
+        }
+
+        .nav-button.back:hover {
+            background: rgba(100, 149, 237, 1);
+            box-shadow: 0 8px 20px rgba(100, 149, 237, 0.4);
+        }
+
+        .nav-button.overview {
+            background: rgba(138, 43, 226, 0.8);
+            border-color: rgba(138, 43, 226, 0.5);
+        }
+
+        .nav-button.overview:hover {
+            background: rgba(138, 43, 226, 1);
+            box-shadow: 0 8px 20px rgba(138, 43, 226, 0.4);
+        }
+
+        .nav-button.next {
+            background: rgba(34, 139, 34, 0.8);
+            border-color: rgba(34, 139, 34, 0.5);
+        }
+
+        .nav-button.next:hover {
+            background: rgba(34, 139, 34, 1);
+            box-shadow: 0 8px 20px rgba(34, 139, 34, 0.4);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            background: rgba(139, 69, 19, 0.9);
+            padding: 50px 40px;
+            border-radius: 20px;
+            border: 3px solid rgba(210, 180, 140, 0.6);
+            box-shadow: 
+                0 0 30px rgba(210, 180, 140, 0.3),
+                inset 0 0 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            background: linear-gradient(45deg, rgba(210, 180, 140, 0.8), rgba(160, 82, 45, 0.8), rgba(210, 180, 140, 0.8));
+            border-radius: 24px;
+            z-index: -1;
+        }
+
+        .header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 4em;
+            margin-bottom: 20px;
+            color: #F5E6D3;
+            text-shadow: 
+                2px 2px 0px rgba(139, 69, 19, 0.8),
+                4px 4px 15px rgba(0, 0, 0, 0.5);
+            letter-spacing: 3px;
+        }
+
+        .header .subtitle {
+            font-size: 1.6em;
+            color: rgba(245, 230, 211, 0.9);
+            font-style: italic;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+            margin-bottom: 15px;
+        }
+
+        .header .timespan {
+            font-size: 1.4em;
+            color: rgba(210, 180, 140, 0.9);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .header .description {
+            font-size: 1.1em;
+            color: rgba(245, 230, 211, 0.8);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 6px;
+            background: linear-gradient(to bottom, 
+                rgba(139, 69, 19, 0.8) 0%,
+                rgba(160, 82, 45, 0.8) 50%,
+                rgba(210, 180, 140, 0.7) 100%);
+            transform: translateX(-50%);
+            border-radius: 3px;
+            box-shadow: 0 0 10px rgba(160, 82, 45, 0.5);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 80px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .timeline-item:nth-child(odd) {
+            padding-right: 55%;
+        }
+
+        .timeline-item:nth-child(even) {
+            padding-left: 55%;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.6s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.8s; }
+        .timeline-item:nth-child(5) { animation-delay: 1.0s; }
+        .timeline-item:nth-child(6) { animation-delay: 1.2s; }
+        .timeline-item:nth-child(7) { animation-delay: 1.4s; }
+        .timeline-item:nth-child(8) { animation-delay: 1.6s; }
+        .timeline-item:nth-child(9) { animation-delay: 1.8s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .timeline-marker {
+            position: absolute;
+            top: 30px;
+            width: 24px;
+            height: 24px;
+            background: radial-gradient(circle, rgba(245, 230, 211, 0.9) 0%, rgba(160, 82, 45, 0.8) 100%);
+            border: 3px solid rgba(160, 82, 45, 0.6);
+            border-radius: 50%;
+            z-index: 2;
+            box-shadow: 0 0 15px rgba(160, 82, 45, 0.6);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-marker {
+            right: -68px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-marker {
+            left: -68px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(160, 82, 45, 0.6); }
+            50% { transform: scale(1.1); box-shadow: 0 0 25px rgba(160, 82, 45, 0.8); }
+        }
+
+        .event-card {
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.95) 0%, rgba(160, 82, 45, 0.95) 100%);
+            border: 2px solid rgba(210, 180, 140, 0.4);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.3),
+                0 0 20px rgba(160, 82, 45, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(210, 180, 140, 0.8);
+            box-shadow: 
+                0 15px 40px rgba(0, 0, 0, 0.4),
+                0 0 30px rgba(210, 180, 140, 0.4);
+        }
+
+        .event-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .event-time {
+            color: rgba(245, 222, 179, 0.9);
+            font-weight: 600;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .event-title {
+            font-family: 'Cinzel', serif;
+            color: #F5E6D3;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .event-description {
+            color: rgba(245, 230, 211, 0.8);
+            line-height: 1.6;
+            font-size: 1.05em;
+            margin-bottom: 15px;
+        }
+
+        .event-importance {
+            color: rgba(245, 222, 179, 0.9);
+            font-style: italic;
+            font-size: 0.95em;
+            border-left: 3px solid rgba(245, 222, 179, 0.6);
+            padding-left: 15px;
+            margin-top: 15px;
+        }
+
+        .visualization {
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            border: 1px solid rgba(210, 180, 140, 0.3);
+        }
+
+        .agriculture-visual {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .seed {
+            width: 15px;
+            height: 15px;
+            background: rgba(139, 69, 19, 0.8);
+            border-radius: 50%;
+            animation: grow-plant 3s ease-in-out infinite;
+        }
+
+        .plant {
+            width: 20px;
+            height: 40px;
+            background: linear-gradient(to top, rgba(139, 69, 19, 0.8) 0%, rgba(34, 139, 34, 0.8) 100%);
+            border-radius: 10px 10px 0 0;
+            animation: sway 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes grow-plant {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+
+        @keyframes sway {
+            0% { transform: rotate(-2deg); }
+            100% { transform: rotate(2deg); }
+        }
+
+        .settlement-visual {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 15px;
+        }
+
+        .house {
+            width: 30px;
+            height: 25px;
+            background: rgba(139, 69, 19, 0.8);
+            position: relative;
+            animation: build 2s ease-in-out infinite alternate;
+        }
+
+        .house::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -5px;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 15px solid rgba(160, 82, 45, 0.8);
+        }
+
+        @keyframes build {
+            0% { transform: translateY(5px); opacity: 0.7; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @media screen and (max-width: 768px) {
+            .navigation-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-button {
+                min-width: 250px;
+            }
+
+            .header h1 {
+                font-size: 2.5em;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                padding-left: 80px;
+                padding-right: 20px;
+                text-align: left;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-marker,
+            .timeline-item:nth-child(even) .timeline-marker {
+                left: 20px;
+                right: auto;
+            }
+
+            .event-card {
+                padding: 20px;
+            }
+
+            .event-title {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="navigation-buttons">
+            <a href="erdzeitalter.html" class="nav-button back">🦕 ← Zurück zu Erdzeitalter</a>
+            <a href="https://dennigkofen.github.io/RZG/" class="nav-button overview">📜 Zurück zur Übersicht</a>
+            <a href="antike.html" class="nav-button next">🏛️ Weiter zur Antike →</a>
+        </div>
+        
+        <div class="header">
+            <h1>🌾 Frühgeschichte 🌾</h1>
+            <div class="subtitle">Von Jägern und Sammlern zu den ersten Bauern</div>
+            <div class="timespan">10.000 - 3.000 v. Chr.</div>
+            <div class="description">
+                Die neolithische Revolution veränderte die Menschheit grundlegend. Von nomadischen Jägern und Sammlern 
+                entwickelten sich die ersten sesshaften Gemeinschaften, die Landwirtschaft betrieben, Tiere domestizierten 
+                und die Grundlagen für komplexe Gesellschaften legten.
+            </div>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="event-card">
+                    <div class="event-icon">🏹</div>
+                    <div class="event-time">10.000 v. Chr.</div>
+                    <div class="event-title">Ende der Jäger-Sammler-Kultur</div>
+                    <div class="event-description">
+                        Nach über 200.000 Jahren als nomadische Jäger und Sammler beginnen Menschen in verschiedenen Regionen der Welt, sich niederzulassen. Das Ende der letzten Eiszeit schafft neue, stabile Klimabedingungen, die sesshafte Lebensweisen ermöglichen.
+                    </div>
+                    <div class="event-importance">
+                        <strong>Bedeutung:</strong> Das Ende der längsten Periode menschlicher Existenz. Der Übergang zu sesshafter Lebensweise war eine der größten Revolutionen der Menschheitsgeschichte.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="event-card">
+                    <div class="event-icon">🌾</div>
+                    <div class="event-time">9.500 v. Chr.</div>
+                    <div class="event-title">Erste Landwirtschaft</div>
+                    <div class="event-description">
+                        Im "Fruchtbaren Halbmond" (heutige Türkei, Syrien, Irak) beginnen Menschen systematisch Wildgetreide wie Emmer und Einkorn anzubauen. Statt Nahrung zu sammeln, produzieren sie sie nun gezielt. Diese Entwicklung geschah unabhängig auch in China, Mesoamerika und anderen Regionen.
+                    </div>
+                    <div class="visualization">
+                        <div class="agriculture-visual">
+                            <div class="seed"></div>
+                            <div class="plant"></div>
+                            <div class="plant" style="animation-delay: 0.5s;"></div>
+                            <div class="plant" style="animation-delay: 1s;"></div>
+                        </div>
+                    </div>
+                    <div class="event-importance">
+                        <strong>Bedeutung:</strong> Die neolithische Revolution - Grundlage für alle späteren Zivilisationen. Landwirtschaft ermöglichte Bevölkerungswachstum und Spezialisierung.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="event-card">
+                    <div class="event-icon">🐄</div>
+                    <div class="event-time">9.000 v. Chr.</div>
+                    <div class="event-title">Domestikation von Tieren</div>
+                    <div class="event-description">
+                        Neben Pflanzen begannen Menschen auch Tiere zu domestizieren. Zuerst Hunde (schon früher), dann Schafe, Ziegen, Rinder und Schweine. Diese Tiere lieferten nicht nur Fleisch, sondern auch Milch, Wolle, Leder und Arbeitskraft für die Landwirtschaft.
+                    </div>
+                    <div class="event-importance">
+                        <strong>Bedeutung:</strong> Tierhaltung revolutionierte die Ernährung und Arbeitsweise. Tiere wurden zu lebenden Ressourcen für Nahrung, Materialien und Energie.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="event-card">
+                    <div class="event-icon">🏘️</div>
+                    <div class="event-time">8.500 v. Chr.</div>
+                    <div class="event-title">Erste permanente Siedlungen</div>
+                    <div class="event-description">
+                        In Çatalhöyük (Türkei) und Jericho entstehen die ersten dauerhaften Siedlungen mit mehreren tausend Einwohnern. Die Häuser werden aus Lehm und Stein gebaut, oft ohne Türen - der Eingang erfolgte über das Dach. Komplexe soziale Strukturen entwickeln sich.
+                    </div>
+                    <div class="visualization">
+                        <div class="settlement-visual">
+                            <div class="house"></div>
+                            <div class="house" style="animation-delay: 0.5s;"></div>
+                            <div class="house" style="animation-delay: 1s;"></div>
+                        </div>
+                    </div>
+                    <div class="event-importance">
+                        <strong>Bedeutung:</strong> Der Beginn des städtischen Lebens. Permanente Siedlungen ermöglichten Arbeitsteilung, Handel und kulturelle Entwicklung.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="event-card">
+                    <div class="event-icon">🏺</div>
+                    <div class="event-time">7.000 v. Chr.</div>
+                    <div class="event-title">Erfindung der Keramik</div>
+                    <div class="event-description">
+                        Die Töpferei revolutionierte die Nahrungszubereitung und -lagerung. Getreide konnte gekocht, Vorräte sicher aufbewahrt und Flüssigkeiten transportiert werden. Die ersten Töpferscheiben entstanden, und Keramik wurde auch für rituelle Zwecke verwendet.
+                    </div>
+                    <div class="event-importance">
+                        <strong>Bedeutung:</strong> Keramik verbesserte die Ernährung erheblich und ermöglichte bessere Vorratshaltung. Sie ist heute ein wichtiger archäologischer Indikator für Kulturen.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="event-card">
+                    <div class="event-icon">⚒️</div>
+                    <div class="event-time">6.000 v. Chr.</div>
+                    <div class="event-title">Metallverarbeitung beginnt</div>
+                    <div class="event-description">
+                        Menschen in Anatolien und dem Balkan begannen, Kupfer zu verarbeiten - zunächst durch Hämmern von gediegenem Kupfer, später durch Schmelzen aus Erzen. Dies markierte das Ende der Steinzeit und den Beginn des Kupferzeit-Übergangs.
+                    </div>
+                    <div class="event-importance">
+                        <strong>Bedeutung:</strong> Der erste Schritt zur Metallverarbeitung. Kupferwerkzeuge waren schärfer und langlebiger als Steinwerkzeuge und revolutionierten Handwerk und Landwirtschaft.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="event-card">
+                    <div class="event-icon">🧵</div>
+                    <div class="event-time">5.000 v. Chr.</div>
+                    <div class="event-title">Weberei und Textilien</div>
+                    <div class="event-description">
+                        Die Entwicklung der Weberei aus Pflanzenfasern (Flachs, Baumwolle) und Tierhaaren (Wolle) revolutionierte die Kleidung. Webstühle wurden erfunden, und textile Handwerkskunst entwickelte sich zu einer wichtigen Spezialisierung.
+                    </div>
+                    <div class="event-importance">
+                        <strong>Bedeutung:</strong> Bessere Kleidung ermöglichte die Besiedlung verschiedener Klimazonen. Textilien wurden auch zu Statussymbolen und Handelsgütern.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="event-card">
+                    <div class="event-icon">⛵</div>
+                    <div class="event-time">4.000 v. Chr.</div>
+                    <div class="event-title">Segel und Fernhandel</div>
+                    <div class="event-description">
+                        Die Erfindung des Segels revolutionierte den Transport über Wasser. Erste Handelsrouten entstanden zwischen entfernten Siedlungen. Obsidian, Bernstein, Kupfer und andere wertvolle Materialien wurden über weite Strecken getauscht.
+                    </div>
+                    <div class="event-importance">
+                        <strong>Bedeutung:</strong> Fernhandel führte zu Kulturaustausch, Verbreitung von Technologien und ersten wirtschaftlichen Netzwerken zwischen verschiedenen Regionen.
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="event-card">
+                    <div class="event-icon">☀️</div>
+                    <div class="event-time">3.200 v. Chr.</div>
+                    <div class="event-title">Erfindung des Rads</div>
+                    <div class="event-description">
+                        In Mesopotamien wurde das Rad erfunden - zunächst als Töpferscheibe, dann für Karren und Wagen. Diese geniale Erfindung revolutionierte den Transport, die Kriegsführung und das Handwerk. Räder ermöglichten es, schwere Lasten effizient zu bewegen.
+                    </div>
+                    <div class="event-importance">
+                        <strong>Bedeutung:</strong> Eine der wichtigsten Erfindungen der Menschheit. Das Rad ermöglichte effizienteren Transport, Handel und legte den Grundstein für komplexere Technologien.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 60px; padding: 40px; background: rgba(139, 69, 19, 0.8); border-radius: 15px; border: 2px solid rgba(210, 180, 140, 0.4);">
+            <h3 style="font-family: 'Cinzel', serif; color: #F5E6D3; font-size: 1.8em; margin-bottom: 20px;">🎓 Zusammenfassung</h3>
+            <p style="color: rgba(245, 230, 211, 0.8); font-size: 1.1em; line-height: 1.6; max-width: 800px; margin: 0 auto;">
+                Die Frühgeschichte markiert den größten Wandel in der menschlichen Lebensweise seit der Entstehung unserer Spezies. 
+                Von nomadischen Jägern und Sammlern entwickelten sich sesshafte Bauerngemeinschaften, die durch Landwirtschaft, 
+                Tierhaltung und neue Technologien die Grundlagen für alle späteren Zivilisationen schufen. Diese neolithische 
+                Revolution ermöglichte Bevölkerungswachstum, Arbeitsteilung und den Weg zu komplexen Gesellschaften.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for timeline items
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        timelineItems.forEach(item => {
+            observer.observe(item);
+        });
+
+        // Enhanced hover effects for event cards
+        document.querySelectorAll('.event-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
